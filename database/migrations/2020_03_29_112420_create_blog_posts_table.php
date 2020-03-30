@@ -14,7 +14,7 @@ class CreateBlogPostsTable extends Migration
     public function up()
     {
         Schema::create('blog_posts', function (Blueprint $table) {
-            $table->string('id', 90)->primary();
+            $table->string('blog_id', 90)->primary();
             $table->string('title', 90);
             $table->text('bodyContent');
             $table->timestamps();

@@ -15,7 +15,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/blog', 'PagesController@blog');
 Route::get('/', 'PagesController@home');
-Route::get('/blogtest', function(){
-  return view('pages.blogtest');
-});
-Route::resource('blogposts', 'BlogPostsController');
+Route::get('/blogposts/{id}', 'BlogPostsController@show');
+Route::get('/blog', 'BlogPostsController@index');
+//Route::resource('blogposts', 'BlogPostsController');

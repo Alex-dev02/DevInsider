@@ -1,5 +1,21 @@
 @extends('layouts.app')
 
 @section('content')
-  <h1>This is the page where our blogs will be listed</h1>
+  @php
+    $firstBlog = false;
+  @endphp
+  @foreach($BlogPostTitlesAndIds as $BlogPostTitleAndId)
+    @if($firstBlog == false)
+      @php
+        $firstBlog = true;
+      @endphp
+      <a href="{{URL::to('/blogposts/' . $BlogPostTitleAndId->blog_id)}}">
+        <strong>{{$BlogPostTitleAndId->title}}</strong>
+      </a>
+    @elseif($firstBlog == true)
+      <a href="{{URL::to('/blogposts/' . $BlogPostTitleAndId->blog_id)}}">
+        <strong>{{$BlogPostTitleAndId->title}}</strong>
+      </a>
+    @endif
+  @endforeach
 @endsection
