@@ -1,5 +1,5 @@
 @extends('layouts.app')
 
 @section('content')
-  <h1>Care sunt pașii în programare?</h1>
+  <h1>Home</h1>
 @endsection
