@@ -15,9 +15,13 @@
             <a class="nav-link" href="/invata">Invata sa programezi<span class="sr-only"></a>
           </li>-->
 
-          <li class="nav-item nav-items-space">
-            <a class="nav-link disabled" href="/inv">Invata sa programezi</a>
+          <li class="nav-item active nav-items-space">
+            <a class="nav-link" href="/invata-programare">Învață programare<span class="sr-only"></a>
           </li>
+
+          <!--<li class="nav-item nav-items-space">
+            <a class="nav-link disabled" href="/inv">Invata sa programezi</a>
+          </li>-->
 
         </ul>
       </div>

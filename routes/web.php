@@ -17,4 +17,5 @@ Route::get('/blog', 'PagesController@blog');
 Route::get('/', 'PagesController@home');
 Route::get('/blogposts/{id}', 'BlogPostsController@show');
 Route::get('/blog', 'BlogPostsController@index');
+Route::get('/invata-programare', 'PagesController@lessons');
 //Route::resource('blogposts', 'BlogPostsController');

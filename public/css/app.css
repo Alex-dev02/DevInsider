@@ -1,13 +1,17 @@
-
 .nav-items-space{
   padding-left: 20px;
-}
-
-body{
-
 }
 
 .headerblogspace{
   padding-top: 2%;
   padding-bottom: 0.0001%;
+}
+
+a:hover{
+  text-decoration: none;
+}
+
+.row#li{
+  list-style-type: none;
+  text-align: center;
 }

@@ -1,21 +1,17 @@
 @extends('layouts.app')
 
 @section('content')
-  @php
-    $firstBlog = false;
-  @endphp
-  @foreach($BlogPostTitlesAndIds as $BlogPostTitleAndId)
-    @if($firstBlog == false)
-      @php
-        $firstBlog = true;
-      @endphp
-      <a href="{{URL::to('/blogposts/' . $BlogPostTitleAndId->blog_id)}}">
-        <strong>{{$BlogPostTitleAndId->title}}</strong>
-      </a>
-    @elseif($firstBlog == true)
-      <a href="{{URL::to('/blogposts/' . $BlogPostTitleAndId->blog_id)}}">
-        <strong>{{$BlogPostTitleAndId->title}}</strong>
-      </a>
-    @endif
-  @endforeach
+  <h1 style="text-align: center; padding: 3%;">Aici poți găsi toate blogurile!</h1>
+  <div class = "row">
+      @foreach($BlogPostTitlesAndIds as $BlogPostTitleAndId)
+        <div class="col-md-4">
+          <div class="thumbnail">
+            <a href="{{URL::to('/blogposts/' . $BlogPostTitleAndId->blog_id)}}">
+              <img class="img-responsive"src="{{URL::asset('https://res.cloudinary.com/devinsider/image/upload/v1585659207/images/blogbg_nswhwh.png')}}" width="350" height="200">
+              <p style="text-align: center; font-size: 18px;">{{$BlogPostTitleAndId->title}}</p>
+            </a>
+          </div>
+        </div>
+      @endforeach
+  </div>
 @endsection
