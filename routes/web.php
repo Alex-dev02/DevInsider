@@ -14,12 +14,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/blog', 'PagesController@blog');
-Route::get('/', 'PagesController@presentationPage');
+Route::get('/', function(){
+  return redirect("/home");
+});
 Route::get('/blogposts/{id}', 'BlogPostsController@show');
 Route::get('/blog', 'BlogPostsController@index');
-Route::get('/invata-programare', 'PagesController@lessons');
 //Route::resource('blogposts', 'BlogPostsController');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index');

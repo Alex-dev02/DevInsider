@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
     <div class="container">
-        <a class="navbar-brand" href="{{ url('/') }}">
+        <a class="navbar-brand" href="{{ url('/home') }}">
             {{ config('app.name', 'Laravel') }}
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -15,7 +15,7 @@
               </li>
 
               <li style="font-size:18px;" class="nav-item active nav-items-space">
-                <a class="nav-link" href="/invata-programare">Învață programare<span class="sr-only"></a>
+                <a class="nav-link" href="/home">Învață programare<span class="sr-only"></a>
               </li>
             </ul>
 
