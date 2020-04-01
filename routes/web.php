@@ -14,8 +14,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/blog', 'PagesController@blog');
-Route::get('/', 'PagesController@home');
+Route::get('/', 'PagesController@presentationPage');
 Route::get('/blogposts/{id}', 'BlogPostsController@show');
 Route::get('/blog', 'BlogPostsController@index');
 Route::get('/invata-programare', 'PagesController@lessons');
 //Route::resource('blogposts', 'BlogPostsController');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

@@ -1,28 +1,56 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <a class="navbar-brand nav-items-space" href="/">DevInsider</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+<nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+    <div class="container">
+        <a class="navbar-brand" href="{{ url('/') }}">
+            {{ config('app.name', 'Laravel') }}
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <!-- Left Side Of Navbar -->
+            <ul class="navbar-nav mr-auto">
+              <li style="font-size:18px;"class="nav-item active nav-items-space">
+                <a class="nav-link" href="/blog">Blog<span class="sr-only"></a>
+              </li>
 
-          <li class="nav-item active nav-items-space">
-            <a class="nav-link" href="/blog">Blog<span class="sr-only"></a>
-          </li>
+              <li style="font-size:18px;" class="nav-item active nav-items-space">
+                <a class="nav-link" href="/invata-programare">Învață programare<span class="sr-only"></a>
+              </li>
+            </ul>
 
-          <!--<li class="nav-item active nav-items-space">
-            <a class="nav-link" href="/invata">Invata sa programezi<span class="sr-only"></a>
-          </li>-->
+            <!-- Right Side Of Navbar -->
+            <ul class="navbar-nav ml-auto">
+                <!-- Authentication Links -->
+                @guest
+                    <li class="nav-item active nav-items-space" style="font-size:18px;">
+                        <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                    </li>
+                    @if (Route::has('register'))
+                        <li class="nav-item active nav-items-space" style="font-size:18px;">
+                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                        </li>
+                    @endif
+                @else
+                    <li class="nav-item active dropdown" style="font-size:18px;">
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            {{ Auth::user()->name }} <span class="caret"></span>
+                        </a>
 
-          <li class="nav-item active nav-items-space">
-            <a class="nav-link" href="/invata-programare">Învață programare<span class="sr-only"></a>
-          </li>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{{ route('logout') }}"
+                               onclick="event.preventDefault();
+                                             document.getElementById('logout-form').submit();">
+                                {{ __('Logout') }}
+                            </a>
 
-          <!--<li class="nav-item nav-items-space">
-            <a class="nav-link disabled" href="/inv">Invata sa programezi</a>
-          </li>-->
-
-        </ul>
-      </div>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
+                        </div>
+                    </li>
+                @endguest
+            </ul>
+        </div>
+    </div>
 </nav>

@@ -10,8 +10,8 @@ class PagesController extends Controller
       return view('pages.blog');
     }
 
-    public function home(){
-      return view('pages.home');
+    public function presentationPage(){
+      return view('pages.presentationPage');
     }
 
     public function lessons(){
