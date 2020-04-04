@@ -13,7 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/blog', 'PagesController@blog');
 Route::get('/', function(){
   return redirect("/home");
 });

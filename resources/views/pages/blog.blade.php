@@ -2,7 +2,7 @@
 
 @section('content')
   <h1 style="text-align: center; padding: 3%;">Aici poți găsi toate blogurile!</h1>
-  <div class = "row">
+  <div class = "row" style="text-align: center">
       @foreach($BlogPostTitlesAndIds as $BlogPostTitleAndId)
         <div class="col-md-4">
           <div class="thumbnail">

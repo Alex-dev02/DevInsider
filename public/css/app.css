@@ -7,6 +7,34 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 
+ .nav-items-space{
+   padding-left: 20px;
+ }
+
+ .headerblogspace{
+   padding-top: 2%;
+   padding-bottom: 0.0001%;
+ }
+
+ a:hover{
+   text-decoration: none;
+ }
+
+ .row#li{
+   list-style-type: none;
+   text-align: center;
+ }
+
+.chapter{
+  list-style-type: none;
+  padding-bottom: 10px;
+  font-size: 18px;
+}
+
+.lesson{
+  list-style-type: none; 
+}
+
 :root {
   --blue: #3490dc;
   --indigo: #6574cd;
@@ -10880,23 +10908,4 @@ a.text-dark:focus {
     color: inherit;
     border-color: #dee2e6;
   }
-}
-
-
-.nav-items-space{
-  padding-left: 20px;
-}
-
-.headerblogspace{
-  padding-top: 2%;
-  padding-bottom: 0.0001%;
-}
-
-a:hover{
-  text-decoration: none;
-}
-
-.row#li{
-  list-style-type: none;
-  text-align: center;
 }

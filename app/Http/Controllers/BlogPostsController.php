@@ -7,6 +7,7 @@ use App\BlogPost;
 
 class BlogPostsController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
