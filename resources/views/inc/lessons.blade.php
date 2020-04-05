@@ -4,20 +4,20 @@
       @if(count($chapters) > 0)
         @foreach($chapters as $chapter)
             <div class="card">
-              <div class="card-header" id="headingTwo">
+              <div class="card-header" id="heading-{{$chapter}}">
                 <h5 class="mb-0">
-                  <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                  <button style="text-decoration: none;" class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse-{{$chapter}}" aria-expanded="false" aria-controls="collapse-{{$chapter}}">
                     <span style="font-size: 20px;">{{$chapter}}</span>
                   </button>
                 </h5>
               </div>
-              <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+              <div id="collapse-{{$chapter}}" class="collapse" aria-labelledby="heading-{{$chapter}}" data-parent="#accordionExample">
                 <div class="card-body">
                   <ul class="list-group">
                     @foreach($lessons as $lesson)
                       @if($lesson->belongs_to_chapter == $chapter)
-                        <a href="{{URL::to('/lessons/' . $lesson->lesson_id)}}">
-                          <li class="list-group-item">{{$lesson->title}}</li>
+                        <a style="text-decoration: none;"href="{{URL::to('/lessons/' . $lesson->lesson_id)}}">
+                          <li class="list-group-item" style="font-size: 18px;">{{$lesson->title}}</li>
                         </a>
                       @endif
                     @endforeach

@@ -25,10 +25,11 @@ class HomeController extends Controller
     public function index()
     {
         $lessons = Lesson::all();
+        $test = "test";
         $data = array(
           'lessons' => $lessons,
           'chapters' => ['Introducere', 'Variabile', 'If'],
-          'divs' => ['one', 'two', 'three'],
+          'collapse_divs' => ['one', 'two', 'three'],
         );
         return view('pages.home')->with($data);
     }
