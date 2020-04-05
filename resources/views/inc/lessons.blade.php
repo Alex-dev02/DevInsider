@@ -1,23 +1,32 @@
 <div class="row justify-content-center">
-      <div class="col-md-8">
-        <div class="lessons" style="background-color: white; width:100%;">
-          <div class="lessons-header">
-            <h3 style="padding-top: 20px; padding-left:15px;">Invata programare</h3>
-            <hr>
-          </div>
-          <div class="chapters">
-            <ul>
-              <li class="chapter">
-                <span>Introducere</span>
-                <ul>
-                  <li class = "lesson">
-                    <a href="/">Ce este</a>
-                  </li>
-                </ul>
-              </li>
-              <li class="chapter">Variabile</li>
-            </ul>
-          </div>
-        </div>
+  <div class="col-md-8">
+    <div class="accordion" id="accordionExample">
+      @if(count($chapters) > 0)
+        @foreach($chapters as $chapter)
+            <div class="card">
+              <div class="card-header" id="headingTwo">
+                <h5 class="mb-0">
+                  <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    <span style="font-size: 20px;">{{$chapter}}</span>
+                  </button>
+                </h5>
+              </div>
+              <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                <div class="card-body">
+                  <ul class="list-group">
+                    @foreach($lessons as $lesson)
+                      @if($lesson->belongs_to_chapter == $chapter)
+                        <a href="{{URL::to('/lessons/' . $lesson->lesson_id)}}">
+                          <li class="list-group-item">{{$lesson->title}}</li>
+                        </a>
+                      @endif
+                    @endforeach
+                  </ul>
+                </div>
+              </div>
+            </div>
+          @endforeach
+        @endif
     </div>
+  </div>
 </div>

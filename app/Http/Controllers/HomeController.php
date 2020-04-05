@@ -24,7 +24,12 @@ class HomeController extends Controller
      */
     public function index()
     {
-      $lessons = Lesson::all();
-        return view('pages.home')->with('lessons', $lessons);
+        $lessons = Lesson::all();
+        $data = array(
+          'lessons' => $lessons,
+          'chapters' => ['Introducere', 'Variabile', 'If'],
+          'divs' => ['one', 'two', 'three'],
+        );
+        return view('pages.home')->with($data);
     }
 }

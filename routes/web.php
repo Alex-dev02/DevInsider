@@ -23,3 +23,4 @@ Route::get('/blog', 'BlogPostsController@index');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+Route::get('/lessons/{id}', 'LessonsController@show');
