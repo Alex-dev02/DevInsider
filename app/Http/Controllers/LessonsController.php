@@ -26,7 +26,7 @@ class LessonsController extends Controller
   public function show($id)
   {
     $lessons = Lesson::find($id);
-    return view('lessons.lesson')->with('lessons', $lessons);
+    return view('lessons.lessons')->with('lessons', $lessons);
   }
 
 }
