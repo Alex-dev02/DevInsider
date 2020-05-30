@@ -18,9 +18,9 @@ Route::get('/', function(){
 });
 Route::get('/blogposts/{id}', 'BlogPostsController@show');
 Route::get('/blog', 'BlogPostsController@index');
-//Route::resource('blogposts', 'BlogPostsController');
-
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 Route::get('/lessons/{id}', 'LessonsController@show');
+Route::get('/problems/{id}', 'ProblemsController@show');
+Route::post('/problems', 'ProblemsController@store');

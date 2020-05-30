@@ -20,6 +20,13 @@
                           <li class="list-group-item" style="font-size: 18px;">{{$lesson->title}}</li>
                         </a>
                       @endif
+                        @foreach($problems as $problem)
+                          @if($problem->belongs_to_lesson_or_problem_id == $lesson->lesson_id && $lesson->belongs_to_chapter == $chapter)
+                            <a style="text-decoration: none;"href="{{URL::to('/problems/' . $problem->problem_id)}}">
+                              <li class="list-group-item" style="font-size: 18px;">{{$problem->title}}</li>
+                            </a>
+                          @endif
+                        @endforeach
                     @endforeach
                   </ul>
                 </div>

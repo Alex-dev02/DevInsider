@@ -24,8 +24,19 @@
     <div id="app">
       @include('inc.navbar')
       <div class="container">
-        @yield('content')
+        <div class="problemSentence">
+          @yield('problemSentence')
+        </div>
+        <div class="inputExample">
+          @yield('inputExample')
+        </div>
+        <div class="outputExample">
+          @yield('outputExample')
+        </div>
       </div>
+    </div>
+    <div class="submitSolutionField">
+      @include('inc.codeEditor')
     </div>
 </body>
 </html>

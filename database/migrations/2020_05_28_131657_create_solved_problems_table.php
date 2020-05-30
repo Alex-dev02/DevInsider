@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateResolvedLessonsTable extends Migration
+class CreateSolvedProblemsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,10 @@ class CreateResolvedLessonsTable extends Migration
      */
     public function up()
     {
-        Schema::create('resolved_lessons', function (Blueprint $table) {
+        Schema::create('solved_problems', function (Blueprint $table) {
             $table->id();
+            $table->string('lesson_id', 90);
+            $table->bigInteger('solved_by_user_id');
             $table->timestamps();
         });
     }
@@ -26,6 +28,6 @@ class CreateResolvedLessonsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('resolved_lessons');
+        Schema::dropIfExists('solved_problems');
     }
 }
