@@ -3,7 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Storage;
+use File;
 use App\Problem;
+use Symfony\Component\Process\Process;
+use Symfony\Component\Process\Exception\ProcessFailedException;
 
 class ProblemsController extends Controller
 {
@@ -37,6 +41,15 @@ class ProblemsController extends Controller
      */
     public function store(Request $request)
     {
-        return $request;
+        $breaks = array("<br />","<br>","<br/>");
+        $request['codeSrc'] = str_ireplace($breaks, "\r\n", $request['codeSrc']);
+        Storage::put('text.txt', $request['codeSrc']);
+        $process = new Process(array('bash', 'C:/xampp/htdocs/DevInsider/comp.sh'));
+        $process->run();
+        // executes after the command finishes
+        if (!$process->isSuccessful()) {
+          throw new ProcessFailedException($process);
+        }
+        echo $process->getOutput();
     }
 }
