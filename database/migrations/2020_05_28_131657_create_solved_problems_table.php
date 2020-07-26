@@ -15,7 +15,7 @@ class CreateSolvedProblemsTable extends Migration
     {
         Schema::create('solved_problems', function (Blueprint $table) {
             $table->id();
-            $table->string('lesson_id', 90);
+            $table->string('problem_id', 90);
             $table->bigInteger('solved_by_user_id');
             $table->timestamps();
         });

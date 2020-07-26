@@ -21,7 +21,7 @@
   }
 </style>
 
-{!! Form::open(['action' => 'ProblemsController@store']) !!}
+{!! Form::open(array('url' => '/problems/' . $problem->problem_id)) !!}
   <div id="editor"></div>
   <input class="codearea" name="codeSrc" type="hidden" id="codeSrc">
   {{Form::submit('Submit')}}

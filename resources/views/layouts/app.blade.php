@@ -19,6 +19,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="icon" href="{{ URL::asset('/css/dev.png') }}" type="image/x-icon"/>
+    @yield('style')
 </head>
 <body>
     <div id="app">
