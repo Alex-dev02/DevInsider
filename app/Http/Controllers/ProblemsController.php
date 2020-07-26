@@ -43,6 +43,9 @@ class ProblemsController extends Controller
      */
     public function store(Request $request, $id)
     {
+        $eligibleForSubmitting = User::where('id', $request->user()->id)->value('eligible_for_submitting');
+        if(now()->diffInSeconds($eligibleForSubmitting) < 30)
+          return view('pages.timeRestricted');
         $breaks = array("<br />","<br>","<br/>");
         $request['codeSrc'] = str_ireplace($breaks, "\r\n", $request['codeSrc']);
         $codeSourceFileName = $request->user()->name;
@@ -70,6 +73,7 @@ class ProblemsController extends Controller
           }
           unlink('/opt/lampp/htdocs/DevInsider/storage/app/' . $request->user()->name . '.cpp');
           unlink($errorFileLocation);
+        User::where('id', $request->user()->id)->update(array('eligible_for_submitting' => now()));
           return view('problems.compilationError')->with('compilationError', $error);
         }
         $results;
@@ -90,7 +94,7 @@ class ProblemsController extends Controller
           $SolvedProblem->solved_by_user_id = $request->user()->id;
           $SolvedProblem->save();
         }
+        User::where('id', $request->user()->id)->update(array('eligible_for_submitting' => now()));
         return view('problems.results')->with('results', $results);
     }
-    // TO DO: trebuie sa adaugi restrictia de 30 de secunde pentru fiecare submisie;
 }

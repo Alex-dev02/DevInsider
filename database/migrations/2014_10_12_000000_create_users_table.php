@@ -19,8 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->boolean('eligible_for_submitting')->default(1);
-            //SCHIMBA BOOLEAN CU O DATA CA SA POTI FACE DIFERENTA DINTRE DATA CAND A FACUT ULTIMA SUBMISIE SI TIMPUL CARE A TRECUT DE ATUNCI
+            $table->timestamp('eligible_for_submitting')->useCurrent();
             $table->string('role',10)->default('customer');
             $table->rememberToken();
             $table->timestamps();
